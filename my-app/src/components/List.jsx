@@ -1,25 +1,67 @@
 import React, { useState } from "react";
-import { nanoid } from "nanoid";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import AddCard from "./AddCard";
-import Card from "./Card";
 import "./List.css";
 
 function List(props) {
-  const [cards, setCards] = useState(props.cards);
+  const [cards, setCards] = useState([]);
 
   function addCard(name) {
-    const newCard = { id: "card-" + nanoid(), name: name };
-    setCards([...cards, newCard]);
+    setCards([...cards, name]);
   }
 
-  const cardList = cards.map((card) => (
-    <Card id={card.id} name={card.name} key={card.id} />
-  ));
+  function reorder(source, startIndex, endIndex) {
+    const result = Array.from(source);
+    const [remove] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, remove);
+
+    return result;
+  }
+
+  const onDragEnd = (result) => {
+    if (!result.destination) {
+      return;
+    }
+
+    if (result.destination.index === result.source.index) {
+      return;
+    }
+
+    const newCards = reorder(
+      cards,
+      result.source.index,
+      result.destination.index
+    );
+
+    setCards(newCards);
+  };
 
   return (
     <div className="task" id={props.id}>
       {props.name}
-      {cardList}
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId="id">
+          {(provided) => (
+            <div ref={provided.innerRef} {...provided.droppableProps}>
+              {cards.map((card, index) => (
+                <Draggable draggableId={index.toString()} index={index}>
+                  {(p) => (
+                    <div
+                      ref={p.innerRef}
+                      {...p.draggableProps}
+                      {...p.dragHandleProps}
+                      className="card"
+                    >
+                      {card}
+                    </div>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
       <AddCard addCard={addCard} />
     </div>
   );

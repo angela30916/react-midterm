@@ -4,17 +4,15 @@ import AddList from "./components/AddList";
 import List from "./components/List";
 import "./App.css";
 
-const DATA = [];
-
 function App(props) {
-  const [tasks, setTasks] = useState(props.tasks);
+  const [tasks, setTasks] = useState([]);
 
   function addTask(name) {
     const newTask = { id: "task-" + nanoid(), name: name };
     setTasks([...tasks, newTask]);
   }
   const taskList = tasks.map((task) => (
-    <List id={task.id} name={task.name} key={task.id} cards={DATA} />
+    <List id={task.id} name={task.name} key={task.id} />
   ));
 
   return (

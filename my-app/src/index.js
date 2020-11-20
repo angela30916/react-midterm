@@ -4,11 +4,9 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-const DATA = [];
-
 ReactDOM.render(
   <React.StrictMode>
-    <App tasks={DATA} />
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
