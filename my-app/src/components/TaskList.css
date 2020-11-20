@@ -1,0 +1,7 @@
+.task {
+  padding: 8px;
+  margin: 8px;
+  width: 153px;
+  overflow-wrap: break-word;
+  border: 1px solid black;
+}

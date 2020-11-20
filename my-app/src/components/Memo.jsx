@@ -2,20 +2,25 @@ import React, { useState } from "react";
 import "./Memo.css";
 
 function Memo(props) {
+  const [name, setName] = useState("");
+
   const [isEditing, setEditing] = useState(false);
 
   function handleChange(e) {
-    console.log(e.target.value);
+    setName(e.target.value);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("subit");
+    if (name) {
+      props.addTask(name);
+      setName("");
+    }
   }
 
   const editingTemplate = (
     <form onSubmit={handleSubmit}>
-      <input type="text" onChange={handleChange} />
+      <input type="text" value={name} onChange={handleChange} />
       <br />
       <br />
       <button type="submit">
