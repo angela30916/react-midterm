@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-midterm/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/react-midterm/static/js/main.68594dc0.chunk.js",
+    "main.js.map": "/react-midterm/static/js/main.68594dc0.chunk.js.map",
+    "runtime-main.js": "/react-midterm/static/js/runtime-main.ff15f846.js",
+    "runtime-main.js.map": "/react-midterm/static/js/runtime-main.ff15f846.js.map",
+    "static/js/2.311d60e9.chunk.js": "/react-midterm/static/js/2.311d60e9.chunk.js",
+    "static/js/2.311d60e9.chunk.js.map": "/react-midterm/static/js/2.311d60e9.chunk.js.map",
+    "static/js/3.73a1c5a5.chunk.js": "/react-midterm/static/js/3.73a1c5a5.chunk.js",
+    "static/js/3.73a1c5a5.chunk.js.map": "/react-midterm/static/js/3.73a1c5a5.chunk.js.map",
+    "index.html": "/react-midterm/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/react-midterm/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.311d60e9.chunk.js.LICENSE.txt": "/react-midterm/static/js/2.311d60e9.chunk.js.LICENSE.txt",
+    "static/media/logo.103b5fa1.svg": "/react-midterm/static/media/logo.103b5fa1.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ff15f846.js",
+    "static/js/2.311d60e9.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.68594dc0.chunk.js"
+  ]
+}
