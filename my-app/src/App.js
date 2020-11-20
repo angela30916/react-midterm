@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
-import Memo from "./components/Memo";
-import TaskList from "./components/TaskList";
+import AddList from "./components/AddList";
+import List from "./components/List";
 import "./App.css";
+
+const DATA = [];
 
 function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
@@ -12,13 +14,13 @@ function App(props) {
     setTasks([...tasks, newTask]);
   }
   const taskList = tasks.map((task) => (
-    <TaskList id={task.id} name={task.name} key={task.id} />
+    <List id={task.id} name={task.name} key={task.id} cards={DATA} />
   ));
 
   return (
     <div className="App">
       {taskList}
-      <Memo addTask={addTask} />
+      <AddList addTask={addTask} />
     </div>
   );
 }

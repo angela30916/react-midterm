@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Memo.css";
+import "./AddCard.css";
 
-function Memo(props) {
+function AddCard(props) {
   const [name, setName] = useState("");
 
   const [isEditing, setEditing] = useState(false);
@@ -13,7 +13,7 @@ function Memo(props) {
   function handleSubmit(e) {
     e.preventDefault();
     if (name) {
-      props.addTask(name);
+      props.addCard(name);
       setName("");
     }
   }
@@ -24,7 +24,7 @@ function Memo(props) {
       <br />
       <br />
       <button type="submit">
-        <span>Add list</span>
+        <span>Add card</span>
       </button>
       <button type="button" onClick={() => setEditing(false)}>
         <span>X</span>
@@ -34,13 +34,13 @@ function Memo(props) {
 
   const viewTemplate = (
     <button type="button" onClick={() => setEditing(true)}>
-      <span>＋ Add a list</span>
+      <span>＋ Add a card</span>
     </button>
   );
 
   return (
-    <div className="memo">{isEditing ? editingTemplate : viewTemplate}</div>
+    <div className="newCard">{isEditing ? editingTemplate : viewTemplate}</div>
   );
 }
 
-export default Memo;
+export default AddCard;
