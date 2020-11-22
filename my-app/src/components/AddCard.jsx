@@ -20,7 +20,12 @@ function AddCard(props) {
 
   const editingTemplate = (
     <form onSubmit={handleSubmit}>
-      <input type="text" value={name} onChange={handleChange} />
+      <input
+        type="text"
+        placeholder="Card title..."
+        value={name}
+        onChange={handleChange}
+      />
       <br />
       <br />
       <button type="submit">

@@ -62,6 +62,8 @@ function List(props) {
         value={newName}
         onChange={handleChange}
       />
+      <br />
+      <br />
       <button type="submit">
         <span>Save</span>
       </button>
@@ -81,7 +83,7 @@ function List(props) {
         className="btnDanger"
         onClick={() => props.deleteTask(props.id)}
       >
-        X
+        Ｘ
       </button>
     </div>
   );

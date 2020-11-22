@@ -1,6 +1,28 @@
 .memo {
-  padding: 8px;
   margin: 8px;
   width: 153px;
-  border: 1px solid black;
+  animation: fadein ease 0.5s;
+}
+.add-list {
+  width: 153px;
+  text-align: left;
+  transition: 0.2s;
+}
+.add-list:hover {
+  background-color: lightgrey;
+}
+.memo button[type="submit"] {
+  margin-right: 5px;
+  background-color: rgb(33, 173, 75);
+}
+.memo button:hover {
+  opacity: 0.8;
+}
+button {
+  border: none;
+  border-radius: 2px;
+  transition: 0.2s;
+}
+input {
+  width: 146px;
 }

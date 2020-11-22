@@ -20,7 +20,12 @@ function AddList(props) {
 
   const editingTemplate = (
     <form onSubmit={handleSubmit}>
-      <input type="text" value={name} onChange={handleChange} />
+      <input
+        type="text"
+        placeholder="List title..."
+        value={name}
+        onChange={handleChange}
+      />
       <br />
       <br />
       <button type="submit">
@@ -33,7 +38,7 @@ function AddList(props) {
   );
 
   const viewTemplate = (
-    <button type="button" onClick={() => setEditing(true)}>
+    <button className="add-list" type="button" onClick={() => setEditing(true)}>
       <span>＋ Add a list</span>
     </button>
   );
