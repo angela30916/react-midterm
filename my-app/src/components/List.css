@@ -11,3 +11,18 @@
   overflow-wrap: break-word;
   border: 1px solid black;
 }
+.title {
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: row;
+}
+.btnDanger {
+  display: inline-flex;
+  background-color: red;
+  border-radius: 50%;
+  color: white;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+}

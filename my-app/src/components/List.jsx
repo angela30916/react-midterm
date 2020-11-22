@@ -36,9 +36,59 @@ function List(props) {
     setCards(newCards);
   };
 
+  const [newName, setNewName] = useState("");
+
+  const [isEditing, setEditing] = useState(false);
+
+  function handleChange(e) {
+    setNewName(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (newName) {
+      props.editTask(props.id, newName);
+      setNewName("");
+    }
+    setEditing(false);
+  }
+
+  const editingTemplate = (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder={props.name}
+        id={props.id}
+        value={newName}
+        onChange={handleChange}
+      />
+      <button type="submit">
+        <span>Save</span>
+      </button>
+      <button type="button" onClick={() => setEditing(false)}>
+        <span>Cancel</span>
+      </button>
+    </form>
+  );
+
+  const viewTemplate = (
+    <div className="row">
+      <div className="title" onClick={() => setEditing(true)}>
+        {props.name}
+      </div>
+      <button
+        type="button"
+        className="btnDanger"
+        onClick={() => props.deleteTask(props.id)}
+      >
+        X
+      </button>
+    </div>
+  );
+
   return (
     <div className="task" id={props.id}>
-      {props.name}
+      {isEditing ? editingTemplate : viewTemplate}
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="id">
           {(provided) => (
